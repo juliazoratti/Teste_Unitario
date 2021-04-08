@@ -22,7 +22,6 @@ public class ContatoModel {
 	@NotEmpty(message="O Nome deve ser preenchido")
 	private String nome;
 
-	//CONTRUCTORS
 	public ContatoModel(){
 	}
 	
@@ -32,7 +31,6 @@ public class ContatoModel {
 		this.telefone = telefone;
 	}
 	
-	//GETTERS AND SETTERS
 	public Long getId() {
 		return id;
 	}
