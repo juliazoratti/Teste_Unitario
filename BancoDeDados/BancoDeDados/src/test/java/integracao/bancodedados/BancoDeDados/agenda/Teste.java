@@ -15,14 +15,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class Teste {
-	
-	@Autowired
-	private TestRestTemplate testRestTemplate;
-	
-	@Test
-	public void deveMostrarTodosContatos() {
-		ResponseEntity<String> resposta = testRestTemplate.exchange("/contatos/",HttpMethod.GET,null, String.class);
-		Assert.assertEquals(HttpStatus.OK, resposta.getStatusCode());
-	}
+@Autowired
+private TestRestTemplate testRestTemplate;
 
+@Test
+public void deveMostrarTodosContatos() {
+    ResponseEntity<String> resposta = testRestTemplate.exchange("/contatos/",HttpMethod.GET,null, String.class);
+    Assert.assertEquals(HttpStatus.OK, resposta.getStatusCode());
+	}
 }

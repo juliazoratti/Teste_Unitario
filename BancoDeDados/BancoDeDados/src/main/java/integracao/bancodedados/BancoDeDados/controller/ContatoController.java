@@ -18,34 +18,32 @@ import integracao.bancodedados.BancoDeDados.repository.ContatoRepository;
 @RestController
 @RequestMapping("/contatos")
 public class ContatoController {
-	
-	@Autowired
-	private ContatoRepository contatoRepository;
-	@GetMapping
-	public ResponseEntity<List<ContatoModel>> getAll() {
-	List<ContatoModel> contatos = contatoRepository.findAll();
-	return ResponseEntity.ok(contatos);
-	}
-	@GetMapping("/contato/{id}")
-	public ResponseEntity<ContatoModel> getById(@PathVariable Long id) {
-	return contatoRepository.findById(id)
-	.map(resp -> ResponseEntity.ok(resp))
-	.orElse(ResponseEntity.badRequest().build());
+@Autowired
+private ContatoRepository contatoRepository;
+@GetMapping
+public ResponseEntity<List<ContatoModel>> getAll() {
+List<ContatoModel> contatos = contatoRepository.findAll();
+return ResponseEntity.ok(contatos);
+}
+@GetMapping("/contato/{id}")
+public ResponseEntity<ContatoModel> getById(@PathVariable Long id) {
+return contatoRepository.findById(id)
+.map(resp -> ResponseEntity.ok(resp))
+.orElse(ResponseEntity.badRequest().build());
 
-	}
-	@PostMapping("/inserir")
-	public ResponseEntity<ContatoModel> post(@RequestBody ContatoModel contato) {
-	contato = contatoRepository.save(contato);
-	return ResponseEntity.status(HttpStatus.CREATED).body(contato);
-	}
-	@PutMapping("/alterar")
-	public ResponseEntity<ContatoModel> put(@RequestBody ContatoModel contato){
-	contato = contatoRepository.save(contato);
-	return ResponseEntity.status(HttpStatus.OK).body(contato);
-	}
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-	contatoRepository.deleteById(id);
-	}
-
+}
+@PostMapping("/inserir")
+public ResponseEntity<ContatoModel> post(@RequestBody ContatoModel contato){
+contato = contatoRepository.save(contato);
+return ResponseEntity.status(HttpStatus.CREATED).body(contato);
+}
+@PutMapping("/alterar")
+public ResponseEntity<ContatoModel> put(@RequestBody ContatoModel contato){
+contato = contatoRepository.save(contato);
+return ResponseEntity.status(HttpStatus.OK).body(contato);
+}
+@DeleteMapping("/{id}")
+public void delete(@PathVariable Long id) {
+contatoRepository.deleteById(id);
+}
 }
