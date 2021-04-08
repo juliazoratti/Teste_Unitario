@@ -19,10 +19,10 @@ public class Teste {
 	@Autowired
 	private TestRestTemplate testRestTemplate;
 	
-	/*@Test
+	@Test
 	public void deveMostrarTodosContatos() {
-	ResponseEntity<String> resposta = testRestTemplate.exchange("/contatos");
-	Assert.assertEquals(HttpStatus.OK, resposta.getStatusCode());
-	}*/
+		ResponseEntity<String> resposta = testRestTemplate.exchange("/contatos/",HttpMethod.GET,null, String.class);
+		Assert.assertEquals(HttpStatus.OK, resposta.getStatusCode());
+	}
 
 }

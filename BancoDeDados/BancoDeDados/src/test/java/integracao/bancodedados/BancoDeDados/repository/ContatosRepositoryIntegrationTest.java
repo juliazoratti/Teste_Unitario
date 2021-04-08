@@ -38,11 +38,12 @@ public class ContatosRepositoryIntegrationTest {
 	ContatoModel contato = contatoRepository.findFirstByNome("Chefe");
 	Assert.assertTrue(contato.getNome().equals("Chefe"));
 	}
-	/*@Test
+	
+	@Test
 	public void findAllByNomeIgnoreCaseRetornaTresContato() {
-	List<ContatoModel> contatos = contatoRepository.findAllByNome;
+	List<ContatoModel> contatos = contatoRepository.findAllByNomeIgnoreCaseContaining("chefe");
 	Assert.assertEquals(3, contatos.size());
-	}*/
+	}
 
 	@After
 	public void end() {
